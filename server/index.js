@@ -28,6 +28,10 @@ app.get('/', (req, res) => {
 	res.send('Hello David!')
 })
 
+app.get('/api/hello', (req, res) => {
+	res.send("안뇽")
+})
+
 
 app.post('/api/users/register', (req, res) => {
 	console.log('Someone is Signing Up, Sir')
