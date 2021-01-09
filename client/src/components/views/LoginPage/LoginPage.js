@@ -45,10 +45,10 @@ function LoginPage(props) {
 				<label>이메일</label>
 				<input type="email" value={Email} onChange={onEmailHandler} />
 				<label>비밀번호</label>
-				<input type="password" value={Password} onChange={onPasswordHandler} />
+				<input type="password" value={Password} onChange={onPasswordHandler}/>
 				<br />
 				<button type="submit">
-					Login
+					로그인
 				</button>
 			</form>
 		</div>

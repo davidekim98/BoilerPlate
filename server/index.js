@@ -49,37 +49,37 @@ app.post('/api/users/register', (req, res) => {
 
 app.post('/api/users/login', (req, res) => {
 	
-	console.log('Someone is Signing In, Sir')
+	console.log('Someone is Signing In')
 	//요청된 이메일을 데이터베이스에 있는지 찾는다.
 	User.findOne({ email: req.body.email }, (err, user) => {
 		
 		console.log('user', user)
-		console.log('Comparing Email, Sir')
+		console.log('Comparing Email')
 		if(!user){
-			console.log('No Email Data, Sir')
+			console.log('No Email Data')
 			return res.json({
 				loginSuccess: false,
 				message: "제공된 이메일에 해당하는 유저가 없습니다."
 			})
 		}
 		
-		console.log('Email Found, Sir')
+		console.log('Email Found')
 		
 		//요청된 이메일이 데이터베이스에 있다면 비밀번호가 맞는 비밀번호인지 확인.
 		user.comparePassword(req.body.password, (err, isMatch) => {
 			if(err) throw err;
-			console.log('Comparing Password, Sir')
+			console.log('Comparing Password')
 			if(!isMatch) {
-				console.log('Wrong Password, Sir')
+				console.log('Wrong Password')
 				return res.json({
 					loginSuccess: false, 
 					message: "비밀번호가 틀렸습니다."
 				})
 			}
-			console.log('Password Identical, Sir')
+			console.log('Password Identical')
 			//비밀번호까지 맞다면 토큰을 생성하기
 			user.generateToken((err, user) => {
-				console.log('Token is Generated, Sir')
+				console.log('Token is Generated')
 				if (err) return res.status(400).send(err);
 				
 				// token을 저장한다. 어디에? 쿠키, 로컬스토리지, 등
