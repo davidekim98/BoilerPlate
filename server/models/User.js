@@ -55,7 +55,7 @@ userSchema.methods.comparePassword = function(plainPassword, cb) {
 	//plainPassword 1234567
 	//암호화된 비밀번호 $2b$10$pqIdKJxLlY6SL0CvdQXCDuqikFReW/P6Qy6MeA051KMjdJ..XXvba
 	bcrypt.compare(plainPassword, this.password, function(err, isMatch) {
-		if(err) return cb(err)
+		if(err) return cb(err);
 		cb(null, isMatch)
 	})	
 }
